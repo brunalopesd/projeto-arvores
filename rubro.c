@@ -70,7 +70,7 @@ Nor* adicionarNo(ArvoreR* arvore, Nor* no, int valor) {
   }
 }
 
-Nor* adicionar_valor(ArvoreR* arvore, int valor) { // eh publico
+Nor* adicionar_valor(ArvoreR* arvore, int valor) {
   operacoes_R = 0;
   if (vazia(arvore)) {
     operacoes_R++;

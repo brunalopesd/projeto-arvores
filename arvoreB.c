@@ -177,11 +177,12 @@ void adicionaChaveRecursivo(ArvoreB* arvore, Nob* no, Nob* novo, int chave) {
   }
 }
 
-void adicionaChave(ArvoreB* arvore, int chave) {
+int  adicionaChave(ArvoreB* arvore, int chave) {
   operacoes_b = 0;
   operacoes_b++;
   Nob* no = localizaNo(arvore, chave);
 
   adicionaChaveRecursivo(arvore, no, NULL, chave);
+  return operacoes_b;
 }
 
