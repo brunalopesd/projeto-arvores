@@ -1,17 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "arvoreAvl.h"
+// #include "arvoreAvl.h"
 #include "rubro.h"
 #include "arvoreB.h"
+#include "avl.h"
 
 
 
 int main() {
 
   // Inicia árvores AVL, B e Rubro-negra
-  Arvore arvore_avl_1;
-  inicia_arvore(&arvore_avl_1);
+  // Arvore arvore_avl_1;
+  // inicia_arvore(&arvore_avl_1);
+  Arvore* arvore_avl_1 = criar();
+
   ArvoreB* arvore_b_1 = criaArvore(10);
   ArvoreR* arvore_rubro = criar_rubro();
 
@@ -24,8 +27,10 @@ int main() {
   int x, avl, b, rubro; 
   fprintf(fp, "Avl, B, Rubro");
   for (x = 999; x >= 0; x--) {
-    adiciona_no(&arvore_avl_1, x); 
-    avl = operacoes_AVL;
+    // adiciona_no(&arvore_avl_1, x); 
+    adicionar(arvore_avl_1, x); 
+    avl = contador_avl;
+    // avl = operacoes_AVL;
 
     adicionaChave(arvore_b_1, x);
     b = operacoes_b;
@@ -49,14 +54,15 @@ int main() {
     }
   }
   // Recria arvores
-  limpa_arvore(&arvore_avl_1, arvore_avl_1.raiz);
-  Arvore arvoreAvl2[1000];
+  limpa_arvore(arvore_avl_1, arvore_avl_1->raiz);
+  Arvore* arvoreAvl2[1000]; // remover *
   ArvoreB* arvoreB2[1000];
   ArvoreR* arvore_rubro_2[1000];
 
 
   for (i = 0; i < 1000; i++) {
-    inicia_arvore(&arvoreAvl2[i]);
+    // inicia_arvore(&arvoreAvl2[i]);
+    arvoreAvl2[i] = criar();
     arvoreB2[i] = criaArvore(10);
     arvore_rubro_2[i] = criar_rubro();
   }
@@ -68,8 +74,10 @@ int main() {
   int rubro2, avl2, b2; 
   for (i = 0; i < 1000; i++) {
     for (j = 0; j < i; j++) {
-      adiciona_no(&arvoreAvl2[i], conjunto_numeros[i][j]);
-      avl2 = operacoes_AVL;
+      // adiciona_no(&arvoreAvl2[i], conjunto_numeros[i][j]);
+      // avl2 = operacoes_AVL;
+      adicionar(arvoreAvl2[i], conjunto_numeros[i][j]);
+      avl2 = contador_avl;
       adicionaChave(arvoreB2[i], conjunto_numeros[i][j]);
       b2 = operacoes_b;
       adicionar_valor(arvore_rubro_2[i], conjunto_numeros[i][j]);
@@ -82,7 +90,7 @@ int main() {
 
   //limpar memoria
     for (i = 0; i < 1000; i++) {
-      limpa_arvore(&arvoreAvl2[i], arvoreAvl2[i].raiz);
+      limpa_arvore(arvoreAvl2[i], arvoreAvl2[i]->raiz);
       free(conjunto_numeros [i]);
     }
   return 1;
