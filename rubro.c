@@ -9,6 +9,7 @@ void rotacionarEsquerda(ArvoreR*, Nor*);
 void rotacionarDireita(ArvoreR*, Nor*);
 
 ArvoreR* criar_rubro() {
+  operacoes_R = 0;
   ArvoreR *arvore = malloc(sizeof(ArvoreR));
   arvore->nulo = NULL;
   arvore->raiz = NULL;
@@ -26,7 +27,6 @@ int vazia(ArvoreR* arvore) {
 Nor* criarNo(ArvoreR* arvore, Nor* pai, int valor) {
   operacoes_R++;
   Nor* no = malloc(sizeof(Nor));
-  operacoes_R++;
 
 
   no->pai = pai;    
@@ -34,33 +34,25 @@ Nor* criarNo(ArvoreR* arvore, Nor* pai, int valor) {
   no->direita = arvore->nulo;
   no->esquerda = arvore->nulo;
 
-  operacoes_R+=4;
-
   return no;
 }
 
 Nor* adicionarNo(ArvoreR* arvore, Nor* no, int valor) {
   operacoes_R++;
   if (valor > no->valor) {
-    operacoes_R++;
 
     if (no->direita == arvore->nulo) {
-      operacoes_R++;
       no->direita = criarNo(arvore, no, valor);     
       no->direita->cor = Vermelho;
-      operacoes_R++;     
       
       return no->direita;
     } else {
-      operacoes_R++;
       return adicionarNo(arvore, no->direita, valor);
     }
   } else {
     if (no->esquerda == arvore->nulo) {
-      operacoes_R++;
       no->esquerda = criarNo(arvore, no, valor);
       no->esquerda->cor = Vermelho;
-      operacoes_R++;
       
       return no->esquerda;
     } else {
@@ -71,16 +63,13 @@ Nor* adicionarNo(ArvoreR* arvore, Nor* no, int valor) {
 }
 
 Nor* adicionar_valor(ArvoreR* arvore, int valor) {
-  operacoes_R = 0;
+  operacoes_R++;
   if (vazia(arvore)) {
-    operacoes_R++;
     arvore->raiz = criarNo(arvore, arvore->nulo, valor);
     arvore->raiz->cor = Preto;
-    operacoes_R++;
       
     return arvore->raiz;
   } else {
-    operacoes_R++;
     Nor* no = adicionarNo(arvore, arvore->raiz, valor);
     balancear(arvore, no);
     
@@ -129,56 +118,44 @@ void pos_order(ArvoreR* arvore, Nor* no, void (callback)(int)) {
 }
 
 void balancear(ArvoreR* arvore, Nor* no) {
-  operacoes_R++;
   while (no->pai->cor == Vermelho) {
+    operacoes_R++;
+
     if (no->pai == no->pai->pai->esquerda) {
-      operacoes_R++;
       Nor *tio = no->pai->pai->direita;
       
       if (tio->cor == Vermelho) {
         tio->cor = Preto; //Caso 1
         no->pai->cor = Preto; 
-        operacoes_R+=2;
 
         no->pai->pai->cor = Vermelho; //Caso 1
         no = no->pai->pai; //Caso 1
-        operacoes_R+=2;
       } else {
         if (no == no->pai->direita) {
-          operacoes_R++;
           no = no->pai; //Caso 2
           rotacionarEsquerda(arvore, no); //Caso 2
         } else {
           no->pai->cor = Preto; 
-          operacoes_R++;
           no->pai->pai->cor = Vermelho; //Caso 3
-          operacoes_R++;
           rotacionarDireita(arvore, no->pai->pai); //Caso 3
         }
       }
     } else {
-      operacoes_R++;
       Nor *tio = no->pai->pai->esquerda;
       
       if (tio->cor == Vermelho) {
         tio->cor = Preto; //Caso 1
         no->pai->cor = Preto; 
-        operacoes_R++;
 
         no->pai->pai->cor = Vermelho; //Caso 1
-        operacoes_R++;
         no = no->pai->pai; //Caso 1
       } else {
-        operacoes_R++;
         if (no == no->pai->esquerda) {
           no = no->pai; //Caso 2
-          operacoes_R++;
           rotacionarDireita(arvore, no); //Caso 2
         } else {
           no->pai->cor = Preto; 
-          operacoes_R++;
           no->pai->pai->cor = Vermelho; //Caso 3
-          operacoes_R++;
           rotacionarEsquerda(arvore, no->pai->pai); //Caso 3
         }
       }

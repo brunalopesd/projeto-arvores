@@ -12,7 +12,7 @@ int main() {
   // Inicia árvores AVL, B e Rubro-negra
   Arvore arvore_avl_1;
   inicia_arvore(&arvore_avl_1);
-  ArvoreB* arvore_b_1 = criaArvore(2);
+  ArvoreB* arvore_b_1 = criaArvore(10);
   ArvoreR* arvore_rubro = criar_rubro();
 
   // Cria arquivo CSV
@@ -57,7 +57,7 @@ int main() {
 
   for (i = 0; i < 1000; i++) {
     inicia_arvore(&arvoreAvl2[i]);
-    arvoreB2[i] = criaArvore(2);
+    arvoreB2[i] = criaArvore(10);
     arvore_rubro_2[i] = criar_rubro();
   }
 
