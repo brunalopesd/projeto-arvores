@@ -38,14 +38,14 @@ int main() {
   fclose(fp);
 
   //caso medio - valores aleatorios
-  int i, j, *conjunto_numeros [1000];
+  int i, j, *conjunto_numeros[1000];
 
-  //gerar 10000 conjuntos aleatorios crescentes
+  //gera conjuntos aleatorios crescentes
   srand(time(0));
   for (i = 0; i < 1000; i++) {
-    conjunto_numeros [i] = malloc((i + 1) * sizeof(int));
+    conjunto_numeros[i] = malloc((i + 1) * sizeof(int));
     for (j = 0; j <= i; j++) {
-      conjunto_numeros [i][j] = rand();
+      conjunto_numeros[i][j] = rand();
     }
   }
   //recriar arvores
