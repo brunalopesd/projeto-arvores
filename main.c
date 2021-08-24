@@ -9,18 +9,18 @@
 
 int main() {
 
-  // Inicia árvores AVL, B e Rubro-negra
+  //iniciar árvores AVL, B e Rubro-negra
   Arvore arvore_avl_1;
   inicia_arvore(&arvore_avl_1);
   ArvoreB* arvore_b_1 = criaArvore(10);
   ArvoreR* arvore_rubro = criar_rubro();
 
-  // Cria arquivo CSV
+  //criar arquivo CSV (permissoes)
   FILE *fp;
   char* filename = "pior_caso.csv";
   fp = fopen(filename, "w+");
 
-  //Pior caso - valores decrescente 
+  //pior caso - valores decrescente 
   int x, avl, b, rubro; 
   fprintf(fp, "Avl, B, Rubro");
   for (x = 999; x >= 0; x--) {
@@ -48,7 +48,7 @@ int main() {
       conjunto_numeros [i][j] = rand();
     }
   }
-  // Recria arvores
+  //recriar arvores
   limpa_arvore(&arvore_avl_1, arvore_avl_1.raiz);
   Arvore arvoreAvl2[1000];
   ArvoreB* arvoreB2[1000];
