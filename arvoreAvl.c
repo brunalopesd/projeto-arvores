@@ -73,7 +73,7 @@ int altura(No* no) {
 }
 
 int fator_balanceamento(No* no) {
-    int alt_esquerda = 0, alt_direita = 0; //mudar nome 
+    int alt_esquerda = 0, alt_direita = 0;
     if (no->esquerda != NULL) {
         alt_esquerda = altura(no->esquerda) + 1;
     }
@@ -181,6 +181,7 @@ int adiciona_no(Arvore *arvore, int valor) {
         No *n = arvore->raiz;
         No *no_centro = NULL;
         do {
+            operacoes_AVL++;
             if (n->valor == valor) {
                 free(no);
             } else if (valor < n->valor) {
@@ -209,7 +210,6 @@ int adiciona_no(Arvore *arvore, int valor) {
                     n = n->direita;
                 }
             }
-        operacoes_AVL++;
         } while (1);
     }        
 }
