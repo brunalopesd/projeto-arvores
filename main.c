@@ -37,7 +37,7 @@ int main() {
   }
   fclose(fp);
 
-  //CASO MEDIO - valores aleatorios
+  //caso medio - valores aleatorios
   int i, j, *conjunto_numeros [1000];
 
   //gerar 10000 conjuntos aleatorios crescentes
