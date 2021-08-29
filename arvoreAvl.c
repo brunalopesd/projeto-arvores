@@ -109,7 +109,6 @@ No* rotacao_simples_esq(No* no) {
 
 No* rotacao_simples_dir(No* no) {
     operacoes_AVL ++;
-
     No *pai = no->pai; 
     No *no_rotaciona = no->esquerda; 
     No *filho = no_rotaciona->direita;
@@ -181,7 +180,6 @@ int adiciona_no(Arvore *arvore, int valor) {
         No *n = arvore->raiz;
         No *no_centro = NULL;
         do {
-            operacoes_AVL++;
             if (n->valor == valor) {
                 free(no);
             } else if (valor < n->valor) {
