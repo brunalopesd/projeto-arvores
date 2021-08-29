@@ -8,6 +8,7 @@ Trabalho realizado para disciplina de Projetos de Arquivos. Para analisar o dese
 
 - Bruna Lopes
 - Victor Saramento
+- Giovane Cachoeira
 
 ## Problema:
 
@@ -33,3 +34,4 @@ gcc -Wall main.c arvoreAvl.c arvoreB.c rubro.c -o output
 ## Plotando os graficos
 
 Apos a execução, baixe os arquivos csv e gere os graficos via excel ou google sheets
+
