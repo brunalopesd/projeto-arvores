@@ -8,7 +8,6 @@ Trabalho realizado para disciplina de Projetos de Arquivos. Para analisar o dese
 
 - Bruna Lopes
 - Victor Saramento
-- Giovane Cachoeira
 
 ## Problema:
 
@@ -34,4 +33,16 @@ gcc -Wall main.c arvoreAvl.c arvoreB.c rubro.c -o output
 ## Plotando os graficos
 
 Apos a execução, baixe os arquivos csv e gere os graficos via excel ou google sheets
+
+## Resultados Obtidos 
+
+
+Os resultados obtidos da análise de iterações realizadas nas operações de inserção por tamanho de conjunto dados, das árvores AVL B e Rubro Negro são apresentados nos dois graficos abaixo.
+
+O primeiro apresenta o resultados de iterações com números ordenados. A ordem utilizada na árvore B para obtenção dos resultados foi 10 em ambos os cenários.
+No segundo gráfico são apresentados os resultados de iterações com números aleatórios. Pode-se observar que a árvore B apresentou o pior desempenho, tanto no pior caso quanto no caso moderado, tendo o maior número de operações de adição e balanceamento.
+A arvore Rubro-Negro apresentou desempenho relativamente próximo ao observado na arvore AVL que apresentou o melhor desempenho. O que foi inesperado para nos já que a teoria nos diz que a arvore Rubro-Negro possui maior rapidez nas operacoes de inserçao quando comparadas com a velocidade de insercao na AVL, isso porque possui menos rotacoes de balanceamento.
+![alt text](Caso_medio_valores_aleatórios.png)
+
+![alt text](pior_caso_valores_ordenados.png)
 
